@@ -24,6 +24,11 @@ class BlueViewController: UIViewController, PrinterData {
     func textToPrint() -> String {
         return "🚙 - синє таксі у дорозі"
     }
+    deinit {
+        printer?.stop()
+        printer?.delegate = nil
+    }
+   
 }
 
 //MARK: - Private

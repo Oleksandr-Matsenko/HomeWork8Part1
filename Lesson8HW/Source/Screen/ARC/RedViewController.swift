@@ -24,6 +24,11 @@ class RedViewController: UIViewController, PrinterData {
     func textToPrint() -> String {
         return "🚗 - червоне таксі у дорозі"
     }
+    deinit {
+        printer?.stop()
+        printer?.delegate = nil
+    }
+   
 }
 
 //MARK: - Private

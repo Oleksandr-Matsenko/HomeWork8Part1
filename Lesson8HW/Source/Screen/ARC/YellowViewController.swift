@@ -13,7 +13,7 @@ class YellowViewController: UIViewController, PrinterData {
     }
     
     
-    var printer: Printer!
+     var printer: Printer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,11 @@ class YellowViewController: UIViewController, PrinterData {
     func textToPrint() -> String {
         return "🚖 - жовте таксі у дорозі"
     }
+    deinit {
+        printer?.stop()
+        printer?.delegate = nil
+    }
+   
 }
 
 //MARK: - Private
@@ -46,8 +51,9 @@ private extension YellowViewController {
     func setup() {
         
         printer = Printer()
-        printer.delegate = self
-        
-        printer.startPrinting()
+        printer?.delegate = self
+        printer?.startPrinting()
+       
+          
     }
 }

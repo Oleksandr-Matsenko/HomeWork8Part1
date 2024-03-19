@@ -13,7 +13,16 @@ class Printer {
     
     private var timer: Timer?
     private var seconds: Int = 0
+   
+    init() {
     
+        print("Printer on")
+    }
+    
+    deinit {
+        
+        print("Printer off")
+    }
     func startPrinting() {
         
         stop()
